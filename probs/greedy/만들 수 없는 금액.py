@@ -1,16 +1,13 @@
-from collections import deque
 
 N = int(input())
 data = list(map(int, input().split()))
 
-data.sort(reverse=True)
-d = deque(data)
+data.sort()
 
-res = sum(d)+1
-while d:
-    cur = d.popleft()
+target = 1
 
-    if cur == 1:
-        break 
-
-print(res)
+for d in data:
+    if target  < d:
+        break
+    target += d
+print(target)
